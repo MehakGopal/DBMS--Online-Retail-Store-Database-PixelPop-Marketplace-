@@ -15,6 +15,8 @@ on the page.
 product.
 ● After adding the product, the customer can view the cart and place an order
 after checking the bill details and successfully paying.
+
+
 3)Supplier Features
 ● Click the "Add Product" button on the supplier dashboard to add a new product.
 ● Fill in the required details, such as product name, description, category, and price.
