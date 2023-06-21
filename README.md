@@ -25,9 +25,11 @@ after checking the bill details and successfully paying.
 ● To update the inventory, go to the "Products" tab and click the "Update
 Inventory" button next to the product.
 ● Enter the new stock quantity and submit the form.
+
 4)Delivery Executive Features
 ● To view your data, just login, and you will be able to see data.
 ● Here, you can view your personal details.
+
 5)Admin Features
 ● To access the admin dashboard, log in as an admin.
 ● Update the salaries of delivery executives.
