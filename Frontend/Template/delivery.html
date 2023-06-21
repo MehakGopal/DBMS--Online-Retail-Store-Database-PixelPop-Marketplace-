@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delivery Executives</title>
+</head>
+<form method="POST">
+	<div style="text-align: right;">
+		<select name="updateExecutive">
+			<option value="changeName">Change Name</option>
+			<option value="changeEmail">Change Email</option>
+			<option value="changeContactNumber">Change Contact Number</option>
+		</select>
+		<button type="submit" name="update">Update Details</button>
+		<button type="submit" name="logout">Log Out</button>
+	</div>
+</form>
+<body>
+	<h1>Delivery Executives</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Salary</th>
+			<th>Number of Trips</th>
+		</tr>
+		<tr>
+			<td>{{ data[0][0] }}</td>
+			<td>{{ data[0][1] }}</td>
+			<td>{{ data[0][2] }}</td>
+		</tr>
+	</table>
+	<div class="msg">{{ msg }}</div>
+</body>
+<!-- </form> -->
+</html>

@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>Products</title>
+
+    <style>
+        .add-product-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<form method="POST">
+    <div style="text-align: left;">
+        <select name="updateSupplier">
+            <option value="changeName">Change Name</option>
+            <option value="changeEmail">Change Email</option>
+            <option value="changeAddress">Change Address</option>
+            <option value="changePincode">Change Pincode</option>
+            <option value="changeContactNumber">Change Contact Number</option>
+        </select>
+        <button type="submit" name="update">Update Details</button>
+    </div>
+</form>
+<body>
+    <h1>Welcome Supplier!</h1>
+    <form method="POST">
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search">
+        <button type="submit" name="search_button" onclick="applySearch()">Search</button>
+        <label for="category">Category ID:</label>
+        <input type="text" id="category" name="category">
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price">
+        <button type="submit" name="filter" onclick="applyFilter()">Filter</button>
+        <button type="submit" name="clearFilters">Clear Filters</button>
+        <button class="submit" name="logout">Log Out</button>
+        <button class="add-product-button" name="add_prod">Add Product</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Category ID</th>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Change Price</th>
+                    <th>Quantity</th>
+                    <th>Add to Inventory</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <form method="POST"> -->
+                {% for row in cursor %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td> <!-- new Category ID column -->
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td><input type="number" name="price_{{ row[0] }}" min="0" max="100000" value="1"></td>
+                    <td><button type="submit" name="change_price" value="{{ row[0] }}" onclick="changePrice({{ row[0] }})">Change Price</button></td>
+                    <td><input type="number" name="quantity_{{ row[0] }}" min="1" max="100" value="1"></td>
+                    <td><button type="submit" name= "add" value="{{ row[0] }}" onclick="addToInventory({{ row[0] }})">Add to Inventory</button></td>
+                </tr>
+                {% endfor %}
+                <!-- </form> -->
+            </tbody>     
+        </table>
+    </form> 
+</body>
+    <script>
+        function addToInventory(productId) {
+            var quantity = document.getElementsByName("quantity" + productId)[0].value;
+            // send productId and quantity to backend to add to cart
+            alert("Added " + quantity + " item(s) of product " + productId + " to cart!");
+        }
+        function applyFilter() {
+            var category = document.getElementById("category").value;
+            var price = document.getElementById("price").value;
+            // send category and price to backend to apply filter
+            alert("Applied filter: Category ID = " + category + ", Price = " + price);
+        }
+        function applySearch() {
+            var search_query = document.getElementById("search").value;
+            alert("Applied search:" + search_query);
+        } 
+        function changePrice(productId) {
+    var price = document.querySelector('input[name="price"][value="' + productId + '"]').value;
+    // send productId and price to backend to change price
+    alert("Changed Price to " + price + " for Product ID: " + productId);
+}
+
+
+
+   
+    </script>
+</html>

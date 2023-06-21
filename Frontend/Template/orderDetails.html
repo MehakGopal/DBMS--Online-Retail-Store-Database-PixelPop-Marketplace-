@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <title>Order Details</title>
+
+</head>
+<form method="POST">
+</form>
+<body>
+    <h1>Order Details</h1>
+    <form method="POST">
+        <button class="submit" name="back">Back</button>      
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for row in cursor %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td> <!-- new Category ID column -->
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>       
+        </table>
+        <div style="float:right">
+            <h2>Order Summary</h2>
+            <p>Total Cost: ${{ total_cost }}</p>
+            <p>Delivery Charge: ${{ delivery_charge }}</p>
+            <p>Date of Delivery: {{ delivery_date }}</p>
+            <p>Delivery Agent ID: {{ agent_id }}</p>
+        </div>
+    </form>  
+</body>
+</html>

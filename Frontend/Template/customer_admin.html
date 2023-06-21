@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <title>Customers</title>
+
+</head>
+<body>
+    <h1>Customer Details</h1>
+    <form method="POST">
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search">
+        <button type="submit" name="search_button" onclick="applySearch()">Search</button>
+        <!-- <button type="submit" name="filter" onclick="applyFilter()">Filter</button> -->
+        <button type="submit" name="clearFilters">Clear Filters</button>
+        <button type="submit" name="netRevenue">Net Revenue from Customer Orders</button>
+        <button class="submit" name="profit">Net Profit and Revenue from Orders</button>
+        <button class="submit" name="back">Back</button>
+    </form>        
+    <table>
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Customer Contact</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for row in cursor %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td> <!-- new Category ID column -->
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>     
+        
+        
+    </table>
+    <script>
+        function addToCart(productId) {
+            var quantity = document.getElementsByName("quantity" + productId)[0].value;
+            // send productId and quantity to backend to add to cart
+            alert("Added " + quantity + " item(s) of product " + productId + " to cart!");
+        }
+        function applyFilter() {
+            var category = document.getElementById("category").value;
+            var price = document.getElementById("price").value;
+            // send category and price to backend to apply filter
+            alert("Applied filter: Category ID = " + category + ", Price = " + price);
+        }
+        function applySearch() {
+        var search_query = document.getElementById("search").value;
+        alert("Applied search:" + search_query);
+        }      
+    </script>
+</body>
+</html>

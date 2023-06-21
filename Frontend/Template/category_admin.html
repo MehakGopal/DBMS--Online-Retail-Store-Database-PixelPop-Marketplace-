@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <title>Categories</title>
+
+</head>
+<body>
+    <!-- <h1>Welcome Customer!</h1> -->
+    <form method="POST">
+        <button type="submit" name="earning">Net Earned by Each category</button>
+        <button type="submit" name="go_back">Back</button>
+    </form>        
+    <table>
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for row in cursor %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td> <!-- new Category ID column -->
+                <td>{{ row[2] }}</td>
+                <!-- <td><input type="number" name="quantity{{ row[0] }}" min="1" max="{{ row[4] }}" value="1"></td>
+                <td><button onclick="addToCart({{ row[0] }})">Add to Cart</button></td> -->
+            </tr>
+            {% endfor %}
+        </tbody>     
+        
+        
+    </table>
+</body>
+</html>

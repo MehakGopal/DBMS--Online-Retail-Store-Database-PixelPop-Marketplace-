@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <title>Products</title>
+
+</head>
+<form method="POST">
+</form>
+<body>
+    <h1>Welcome Admin!</h1>
+    <form method="POST">
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search">
+        <button type="submit" name="search_button" onclick="applySearch()">Search</button>
+        <label for="category">Product ID:</label>
+        <input type="text" id="category" name="product">
+        <button type="submit" name="filter" onclick="applyFilter()">Filter</button>
+        <button type="submit" name="clearFilters">Clear Filters</button>
+        <!-- <button type="submit" name="top10">Top 10 Products</button> -->
+        <button class="submit" name="back">Back</button>
+    </form>        
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Category ID</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <!-- <th>Add to Cart</th> -->
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for row in cursor %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td> <!-- new Category ID column -->
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>     
+        
+        
+    </table>
+    <script>
+        function addToCart(productId) {
+            var quantity = document.getElementsByName("quantity" + productId)[0].value;
+            // send productId and quantity to backend to add to cart
+            alert("Added " + quantity + " item(s) of product " + productId + " to cart!");
+        }
+        function applyFilter() {
+            var category = document.getElementById("category").value;
+            var price = document.getElementById("price").value;
+            // send category and price to backend to apply filter
+            alert("Applied filter: Category ID = " + category + ", Price = " + price);
+        }
+        function applySearch() {
+        var search_query = document.getElementById("search").value;
+        alert("Applied search:" + search_query);
+        }      
+    </script>
+</body>
+</html>

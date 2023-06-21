@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - PixelPop MarketPlace</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        form > * {
+            margin: 10px 0;
+        }
+        label {
+            width: 100px;
+            text-align: right;
+            margin-right: 10px;
+        }
+        input[type="text"], input[type="password"], select {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="/register" method="POST">
+        <h1>Register for PixelPop MarketPlace</h1>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <label for="username">ID:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <label for="type">Select type:</label>
+        <select id="type" name="type">
+            <option value="customer">Customer</option>
+            <option value="supplier">Supplier</option>
+            <option value="delivery">Delivery Executive</option>
+        </select>
+        <button type="submit" name="next">Proceed</button>
+    </form>
+</body>
+</html>
+

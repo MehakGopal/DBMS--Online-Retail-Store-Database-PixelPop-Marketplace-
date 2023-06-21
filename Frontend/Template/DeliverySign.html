@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Delivery Executive Registration</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      form {
+        display: inline-block;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Delivery Executive Registration</h1>
+    <form id="signup-form" method="POST">
+      <label for="name">Executive Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" pattern="\d{4}-\d{2}-\d{2}"><br><br>
+      <label for="email">Executive Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select><br><br>
+      <label for="contact">Contact Number:</label>
+      <input type="tel" id="contact" name="contact"><br><br>
+      <button type="submit" name="Sign">Sign Up</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <title>Products</title>
+
+</head>
+<form method="POST">
+</form>
+<body>
+    <h1>Cart Details</h1>
+    <form method="POST">
+        <div class="msg">Welcome {{ msg }}!!</div>
+        <button type="submit" name="bill">Bill Details</button>
+        <button type="submit" name="back">Back</button>      
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for row in cursor %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td> <!-- new Category ID column -->
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>       
+        </table>
+    </form>  
+</body>
+</html>

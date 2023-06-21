@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <title>Category</title>
+</head>
+<body>
+    <h1>Net Profit and Revenue from each Order</h1>
+    <form method="POST">
+        <button type="submit" name="goback">Back</button>
+    </form>        
+    <table>
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Total Revenue Earned</th>
+                <th>Total_Profit</th>
+                <!-- <th>Add to Cart</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in cursor %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <!-- <td><input type="number" name="quantity{{ row[0] }}" min="1" max="{{ row[4] }}" value="1"></td> -->
+                <!-- <td><button onclick="addToCart({{ row[0] }})">Add to Cart</button></td> -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- <script>
+        function addToCart(productId) {
+            var quantity = document.getElementsByName("quantity" + productId)[0].value;
+            // send productId and quantity to backend to add to cart
+            alert("Added " + quantity + " item(s) of product " + productId + " to cart!");
+        }     
+    </script> -->
+</body>
+</html>

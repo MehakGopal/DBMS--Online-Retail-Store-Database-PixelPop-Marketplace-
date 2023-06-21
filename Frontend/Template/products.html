@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <title>Products</title>
+
+</head>
+<form method="POST">
+<div style="text-align: right;">
+    <button type="submit" name="viewCart">View Cart</button>
+    <select name="updateCustomer">
+        <option value="changeName">Change Name</option>
+        <option value="changeEmail">Change Email</option>
+        <option value="changeAddress">Change Address</option>
+        <option value="changePincode">Change Pincode</option>
+        <option value="changeContactNumber">Change Contact Number</option>
+    </select>
+    <button type="submit" name="update">Update Details</button>
+    <div class="msg">{{ msg }}</div>
+</div>
+</form>
+<body>
+    <h1>Welcome Customer!</h1>
+    <form method="POST">
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search">
+        <button type="submit" name="search_button" onclick="applySearch()">Search</button>
+        <label for="category">Category ID:</label>
+        <input type="text" id="category" name="category">
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price">
+        <button type="submit" name="filter" onclick="applyFilter()">Filter</button>
+        <button type="submit" name="sort">Sort by Quantity</button>
+        <button type="submit" name="clearFilters">Clear Filters</button>
+        <button type="submit" name="top10">Top 10 Products</button>
+        <button class="submit" name="logout">Log Out</button>
+    <!-- </form>         -->
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Category ID</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity Available</th>
+                <th>Quantity</th>
+                <th>Add to Cart</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for row in cursor %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td> <!-- new Category ID column -->
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td><input type="number" name="quantity_{{ row[0] }}" min="1" max="1000" value="1"></td>
+                <td><button type="submit" name= "addToCart" value ="{{ row[0] }}" onclick="addToCart('{{ row[0] }}', '{{ row[4] }}')">Add to Cart</button></td>
+                <!-- <input type="hidden" name="price" value="{{ row[4] }}" /> -->
+            </tr>
+            <!-- <input type="hidden" name="productId" value="{{ row[0] }}" /> -->
+            
+            {% endfor %}
+            
+        </tbody> 
+        
+    </table>
+
+    <script>
+        function addToCart(productId, price) {
+        var quantity = document.getElementsByName("quantity" + productId)[0].value;
+        // send productId, quantity, and price to backend to add to cart
+        alert("Added " + quantity + " item(s) of product " + productId + " to cart! Price: $" + price);
+    }
+        function applyFilter() {
+            var category = document.getElementById("category").value;
+            var price = document.getElementById("price").value;
+            // send category and price to backend to apply filter
+            alert("Applied filter: Category ID = " + category + ", Price = " + price);
+        }
+        function applySearch() {
+        var search_query = document.getElementById("search").value;
+        alert("Applied search:" + search_query);
+        }      
+    </script>
+    </form>
+</body>
+</html>
