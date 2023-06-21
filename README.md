@@ -171,4 +171,5 @@ LEFT JOIN ordered_items oi ON sp.payment_ID = oi.order_ID
 WHERE oi.order_ID IS NULL
 GROUP BY bd.BILL_ID;
 COMMIT;
-# To summarise, in our retail store, we have three main users, a Supplier, a Customer, and a Delivery Executive. We also have an admin that oversees the users and the inventory. Our retail store has limited functionality in the sense that our customers can only place one order right now.
+
+To summarise, in our retail store, we have three main users, a Supplier, a Customer, and a Delivery Executive. We also have an admin that oversees the users and the inventory. Our retail store has limited functionality in the sense that our customers can only place one order right now.
