@@ -3,39 +3,39 @@
 # PIXELPOP MARKETPLACE
 # Features in our Application 
 1) Registration
-● To register as a customer, supplier, or delivery executive, click the "Register" button on the homepage.
-● Fill in the required details and submit the form.
+- To register as a customer, supplier, or delivery executive, click the "Register" button on the homepage.
+- Fill in the required details and submit the form.
 2) Customer Features
-● Click the "Products" tab on the homepage to view the products.
-● Enter the product name or category in the search bar to search for a
+- Click the "Products" tab on the homepage to view the products.
+- Enter the product name or category in the search bar to search for a
 product.
-● To filter products based on quantity or price, use the filter options provided
+- To filter products based on quantity or price, use the filter options provided
 on the page.
-● To add a product to the cart, click the "Add to Cart" button next to the
+- To add a product to the cart, click the "Add to Cart" button next to the
 product.
-● After adding the product, the customer can view the cart and place an order
+- After adding the product, the customer can view the cart and place an order
 after checking the bill details and successfully paying.
 
 
 3)Supplier Features
-● Click the "Add Product" button on the supplier dashboard to add a new product.
-● Fill in the required details, such as product name, description, category, and price.
-● To change the price of a product, go to the "Products" tab and click on the "Change Price" button next to the product.
-● Enter the new price and submit the form.
-● To update the inventory, go to the "Products" tab and click the "Update
+- Click the "Add Product" button on the supplier dashboard to add a new product.
+- Fill in the required details, such as product name, description, category, and price.
+- To change the price of a product, go to the "Products" tab and click on the "Change Price" button next to the product.
+- Enter the new price and submit the form.
+- To update the inventory, go to the "Products" tab and click the "Update
 Inventory" button next to the product.
-● Enter the new stock quantity and submit the form.
+- Enter the new stock quantity and submit the form.
 
 4)Delivery Executive Features
-● To view your data, just login, and you will be able to see data.
-● Here, you can view your personal details.
+- To view your data, just login, and you will be able to see data.
+- Here, you can view your personal details.
 
 5)Admin Features
-● To access the admin dashboard, log in as an admin.
-● Update the salaries of delivery executives.
-● View the various products and categories.
-● View the suppliers, customers, and delivery executives registered.
-● Analyse net revenue and profit across categories and all orders according to
+- To access the admin dashboard, log in as an admin.
+- Update the salaries of delivery executives.
+- View the various products and categories.
+- View the suppliers, customers, and delivery executives registered.
+- Analyse net revenue and profit across categories and all orders according to
 OLAP Queries
   
 # OLAP Queries
