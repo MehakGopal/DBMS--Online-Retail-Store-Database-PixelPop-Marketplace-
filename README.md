@@ -1,4 +1,4 @@
-# DBMS--Online-Retail-Store-Database-PixelPop-Marketplace-
+# DBMS--Online-Retail-Store-Database-PixelPop-Marketplace
 
 # PIXELPOP MARKETPLACE
 # Features in our Application 
