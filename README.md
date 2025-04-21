@@ -53,7 +53,8 @@ order, they proceed to payment details. If the card's expiry date refers to a da
   2) The second trigger is when the user tries to add a product to the cart, but the required quantity exceeds the available quantity. When this trigger gives an error, it will be displayed in the top right corner. Otherwise, it will state, ‘Successfully added.’
  
  3) Our Third trigger is based on the updation of the product quantity. It is more of a fallback feature in case our database encounters a negative value. Every time a customer places an order, the product quantity they ordered is subtracted from the inventory. To avoid getting negative values in the database, our trigger checks if the product quantity to be updated is less than equal to zero and then sets it to zero.
-Basic Queries
+
+# Basic Queries
 1) We have implemented basic searching and filtering queries everywhere. Each customer and supplier can search for products based on their names. The customer can also sort the products based on quantity, category ID, and price.
 2) We have a query in the admin login that allows the salaries of the delivery executives to be updated according to the number of trips they have made.
 The query: update sql_users.delivery_executive set salary=salary+1.1*salary where no_of_trips>=150;
